@@ -16,12 +16,12 @@ import org.xml.sax.SAXException;
 
 public class UtilidadesSoap {
 
-  public static String obtenerRequestSoap(String path) {
+  public static String obtenerRequestSoap(String path) throws IOException {
     String content = null;
     try {
       content = Files.asCharSource(new File(path), Charsets.UTF_8).read();
-    } catch (IOException e) {
-      throw new RuntimeException(e);
+    } catch (Exception e) {
+      throw e;
     }
     return content;
   }

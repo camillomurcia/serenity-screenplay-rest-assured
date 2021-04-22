@@ -32,7 +32,7 @@ public class VerificarConversionNumero implements Question<Boolean> {
       respuestaObtenida =
           obtenerValorEtiquetaXML(lastResponse().getBody().prettyPrint(), "m:NumberToWordsResult");
     } catch (IOException | SAXException | ParserConfigurationException e) {
-      throw new RuntimeException(e);
+      LOGGER.info("Error al obtener dato de la etiqueta: " + e);
     }
     return respuestaObtenida.contains(numeroIngles);
   }

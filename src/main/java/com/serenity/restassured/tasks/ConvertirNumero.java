@@ -4,13 +4,18 @@ import static com.serenity.restassured.utils.enums.EnumRequestSoap.CONVERTIR_NUM
 import static com.serenity.restassured.utils.enums.UtilidadesSoap.obtenerRequestSoap;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
+import java.io.IOException;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.rest.interactions.Post;
+import net.thucydides.core.steps.StepInterceptor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ConvertirNumero implements Task {
   private static final String ENDPOINT = "/webservicesserver/NumberConversion.wso";
 
+  private static final Logger LOGGER = LoggerFactory.getLogger(StepInterceptor.class);
   private String numeroConvertir;
 
   public ConvertirNumero(String numeroConvertir) {
@@ -33,7 +38,12 @@ public class ConvertirNumero implements Task {
   }
 
   private String obtenerRequestConvertirNumeroConData() {
-    return obtenerRequestSoap(CONVERTIR_NUMERO_LETRAS_INGLES.getPathArchivo())
-        .replace("{numeroConvertir}", numeroConvertir);
+    try {
+      return obtenerRequestSoap(CONVERTIR_NUMERO_LETRAS_INGLES.getPathArchivo())
+          .replace("{numeroConvertir}", numeroConvertir);
+    } catch (IOException e) {
+      LOGGER.info("Error al obtener el xml con los datos: " + e);
+      return null;
+    }
   }
 }
