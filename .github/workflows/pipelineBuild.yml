@@ -11,8 +11,9 @@ on:
     - "feature/*"
 
 jobs:
-  Configuracion inicial:
+  setup:
     runs-on: ubuntu-latest
+    name: "Configuracion inicial"
     steps:
     - uses: actions/checkout@v2
     - name: Configuracion JDK 8
@@ -21,18 +22,20 @@ jobs:
         java-version: '8'
         distribution: 'adopt'
         
-  Compilacion:
-    needs: Configuracion inicial
+  compile:
+    needs: setup
     runs-on: ubuntu-latest
+    name: "Compilacion con Gradle"
     steps:
     - name: Compilacion gradle
       run:  | 
         chmod +x gradlew
         ./gradlew build -x test compileTestJava
         
-  Analisis SonarCloud:
-    needs: Compilacion
+  analysis:
+    needs: compile
     runs-on: ubuntu-latest
+    name: "Analisis con SonarCloud"
     steps:
     - name: Escaner SonarCloud
       uses: sonarsource/sonarcloud-github-action@master
