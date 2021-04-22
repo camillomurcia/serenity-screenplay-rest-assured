@@ -31,7 +31,7 @@ jobs:
     - name: Compilacion gradle
       run:  | 
         chmod +x gradlew
-        ./gradlew build -x test compileTestJava
+        ./gradlew build -x test compileTestJava --info
         
   analysis:
     needs: compile
@@ -44,11 +44,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      with:
-        args: >
-          -Dsonar.organization=camillomurcia
-          -Dsonar.projectKey=camillomurcia_serenity-screenplay-rest-assured
-          -Dsonar.sources=src/main
-          -Dsonar.test=src/test
+      run: ./gradlew sonarqube --info
+
             
       

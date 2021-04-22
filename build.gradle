@@ -13,6 +13,7 @@ buildscript {
     dependencies {
         classpath("net.serenity-bdd:serenity-gradle-plugin:2.0.70")
         classpath "gradle.plugin.com.github.sherter.google-java-format:google-java-format-gradle-plugin:0.8"
+        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:3.1.1"
     }
 }
 
@@ -21,6 +22,7 @@ apply plugin: 'idea'
 apply plugin: 'eclipse'
 apply plugin: 'net.serenity-bdd.aggregator'
 apply plugin: 'com.github.sherter.google-java-format'
+apply plugin: 'org.sonarqube'
 
 compileJava.dependsOn 'googleJavaFormat'
 
@@ -32,6 +34,14 @@ test {systemProperties = System.properties}
 
 tasks.withType(Test) {
     systemProperty "file.encoding", "UTF-8"
+}
+
+sonarqube {
+    properties {
+        property "sonar.projectKey", "camillomurcia_serenity-screenplay-rest-assured"
+        property "sonar.organization", "camillomurcia"
+        property "sonar.host.url", "https://sonarcloud.io"
+    }
 }
 
 ext {
