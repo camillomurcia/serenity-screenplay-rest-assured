@@ -21,7 +21,7 @@ public class UtilidadesSoap {
     try {
       content = Files.asCharSource(new File(path), Charsets.UTF_8).read();
     } catch (IOException e) {
-      e.printStackTrace();
+      throw new RuntimeException(e);
     }
     return content;
   }
