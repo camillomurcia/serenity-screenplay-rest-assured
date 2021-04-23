@@ -1,24 +1,24 @@
-# Automatizacion de pruebas para servicios API SOAP Y API REST
+# Automatizacion de pruebas para servicios SOAP Y REST
 
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=camillomurcia_serenity-screenplay-rest-assured&metric=sqale_index)](https://sonarcloud.io/dashboard?id=camillomurcia_serenity-screenplay-rest-assured)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=camillomurcia_serenity-screenplay-rest-assured&metric=alert_status)](https://sonarcloud.io/dashboard?id=camillomurcia_serenity-screenplay-rest-assured)
 ![Build](https://github.com/camillomurcia/serenity-screenplay-rest-assured/actions/workflows/pipelineBuild.yml/badge.svg)
 
 Construccion de pruebas automatizadas con el Patrón Screenplay de Serenity, Cucumber, Junit, 
-Java y Gradle para probar una API REST y una API SOAP
+Java y Gradle para probar una REST y una SOAP
 
 Para esta automatización se utilizan los siguientes servicios expuestos:
 
-- API REST (En construccion): [http://dummy.restapiexample.com](http://dummy.restapiexample.com)
-- API SOAP: [https://www.dataaccess.com/webservicesserver/NumberConversion.wso](https://www.dataaccess.com/webservicesserver/NumberConversion.wso)
+- REST (En construccion): [http://dummy.restapiexample.com](http://dummy.restapiexample.com)
+- SOAP: [https://www.dataaccess.com/webservicesserver/NumberConversion.wso](https://www.dataaccess.com/webservicesserver/NumberConversion.wso)
 
  ### Pruebas construidas 📋
 
- #### API REST ####
+ #### REST ####
 
  - En construccion
 
- #### API SOAP ####
+ #### SOAP ####
 
  - Enviar un numero por el servicio y que este me retorne el numero en ingles 
 
