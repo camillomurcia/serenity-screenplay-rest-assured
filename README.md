@@ -29,7 +29,7 @@ Para esta automatización se utilizan los siguientes servicios expuestos:
  - Gradle 3.2.0 o superior
  - GIT 
 
-## Patrones de diseño utilizados 🗼
+## Patrones de diseño utilizados 🧮
 
 - ### [Patron Builder](https://github.com/sauljabin/design-patterns-java#builder)
 
