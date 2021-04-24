@@ -1,4 +1,4 @@
-package com.serenity.restassured.questions;
+package com.serenity.restassured.questions.soap;
 
 import static com.serenity.restassured.utils.enums.UtilidadesSoap.obtenerValorEtiquetaXML;
 import static net.serenitybdd.rest.SerenityRest.lastResponse;
