@@ -1,4 +1,4 @@
-package com.serenity.restassured.tasks;
+package com.serenity.restassured.tasks.soap;
 
 import static com.serenity.restassured.utils.enums.EnumRequestSoap.CONVERTIR_NUMERO_LETRAS_INGLES;
 import static com.serenity.restassured.utils.enums.UtilidadesSoap.obtenerRequestSoap;
@@ -13,8 +13,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class ConvertirNumero implements Task {
-  private static final String ENDPOINT = "/webservicesserver/NumberConversion.wso";
 
+  private static final String ENDPOINT = "/webservicesserver/NumberConversion.wso";
   private static final Logger LOGGER = LoggerFactory.getLogger(StepInterceptor.class);
   private String numeroConvertir;
 

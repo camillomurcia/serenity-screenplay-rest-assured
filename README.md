@@ -3,6 +3,7 @@
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=camillomurcia_serenity-screenplay-rest-assured&metric=sqale_index)](https://sonarcloud.io/dashboard?id=camillomurcia_serenity-screenplay-rest-assured)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=camillomurcia_serenity-screenplay-rest-assured&metric=alert_status)](https://sonarcloud.io/dashboard?id=camillomurcia_serenity-screenplay-rest-assured)
 ![Build](https://github.com/camillomurcia/serenity-screenplay-rest-assured/actions/workflows/pipelineBuild.yml/badge.svg)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 Construccion de pruebas automatizadas con el Patrón Screenplay de Serenity, Cucumber, Junit, 
 Java y Gradle para probar una REST y una SOAP
@@ -16,7 +17,7 @@ Para esta automatización se utilizan los siguientes servicios expuestos:
 
  #### REST ####
 
- - En construccion
+ - Creacion de usuario 
 
  #### SOAP ####
 
@@ -28,32 +29,50 @@ Para esta automatización se utilizan los siguientes servicios expuestos:
  - Gradle 3.2.0 o superior
  - GIT 
 
+## Patrones de diseño utilizados 🧮
+
+- ### [Patron Builder](https://github.com/sauljabin/design-patterns-java#builder)
+
+- ### [Patron Serenity Screenplay](http://serenity-bdd.info/docs/articles/screenplay-tutorial.html)
+
  ## Estructura del proyecto 🗼
 
     .
     ├── src              
-    │    ├── main                           # Archivos fuente  
-    │    │   └── com.serenity.restassured
-    │    │       ├── exceptions           # Excepciones personalizadas 
-    │    │       ├── questions            # Paquete donde se almacenan clases para obtener datos del servcio, respuesta del servicio, etc..
-    │    │       ├── tasks                # Paquete donde se almacenan las tareas que realizan el conusmo del servicio, etc..
-    │    │       └── utils                # Utilidades desarrolladas
-    │    │                        
-    │    ├── test                         # Archivos para la ejecucion de las pruebas
-    │    │    ├── com.serenity.restassured
-    │    │    │    ├── runners            # Clases de ejecucion de las pruebas
-    │    │    │    │    └── soap          # Clases de ejecucion para servicios SOAP
-    │    │    │    │
-    │    │    │    └── stepdefinitions    # Clases con el método Java con una expresión que lo vincula a uno o más pasos de Gherkin
-    │    │    │        └── soap           # Clases StepDefinitions para servicios SOAP
-    │    │    │    
-    │    │    └── resources
-    │    │         ├── features           # Paquete donde se almacenan los escenarios en lenguaje Gherkin
-    │    │         │   └── soap           # Escenarios en lenguaje Gherkin para servicios SOAP
-    │    │         │
-    │    │         └── request            # Paquete donde se almacena archivo xml o json con el request del servicio
-    │    │             └── soap           # Paquete donde se almacena archivo xml con el request del servicio SOAP
-    │    └── ···
+    │   ├── main                         # Archivos fuente  
+    │   │   └── com.serenity.restassured
+    │   │       ├── exceptions           # Excepciones personalizadas 
+    │   │       ├── models               # Paquete donde se encuentan los modelos - Objeto
+    │   │       │   └── builder              # Clases del patron Builder
+    │   │       │
+    │   │       ├── questions            #  Paquete donde se almacenan clases para obtener datos del servcio, respuesta del servicio, etc..
+    │   │       │   ├── rest                 # Clases especificas para REST
+    │   │       │   └── soap                 # Clases especificas para SOAP
+    │   │       │                         
+    │   │       ├── tasks                #  Paquete donde se almacenan las tareas que realizan el conusmo del servicio, etc..
+    │   │       │   ├── rest                 # Clases especificas para REST
+    │   │       │   └── soap                 # Clases especificas para SOAP
+    │   │       │
+    │   │       └── utils                # Utilidades desarrolladas
+    │   │                        
+    │   ├── test                         # Archivos para la ejecucion de las pruebas
+    │   │   ├── com.serenity.restassured
+    │   │   │   ├── runners              # Clases de ejecucion de las pruebas
+    │   │   │   │   ├── rest                 # Clases de ejecucion para servicios REST
+    │   │   │   │   └── soap                 # Clases de ejecucion para servicios SOAP
+    │   │   │   │
+    │   │   │   └── stepdefinitions     # Clases con el método Java con una expresión que lo vincula a uno o más pasos de Gherkin
+    │   │   │       ├── rest                 # Clases StepDefinitions para servicios REST
+    │   │   │       └── soap                 # Clases StepDefinitions para servicios SOAP
+    │   │   │    
+    │   │   └── resources
+    │   │       ├── features            # Paquete donde se almacenan los escenarios en lenguaje Gherkin
+    │   │       │   ├── rest                 # Escenarios en lenguaje Gherkin para servicios REST
+    │   │       │   └── soap                 # Escenarios en lenguaje Gherkin para servicios SOAP
+    │   │       │
+    │   │       └── request             # Paquete donde se almacena archivo xml o json con el request del servicio
+    │   │           └── soap                 # Paquete donde se almacena archivo xml con el request del servicio SOAP
+    │   └── ···
     │
     └── ···
 
