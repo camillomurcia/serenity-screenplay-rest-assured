@@ -43,5 +43,22 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       run: ./gradlew sonarqube --info
 
+  test:
+    needs: analysis
+    runs-on: ubuntu-latest
+    name: "Ejecucion de pruebas"
+    steps:
+      - uses: actions/checkout@v2
+      - name: Ejecucion de pruebas
+        run: |
+          chmod +x gradlew
+          ./gradlew clean test aggregate
+      - name: GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.5
+        if: github.ref == 'refs/heads/master'
+        with:
+          BRANCH: gh-pages
+          FOLDER: target/site/serenity
+          CLEAN: true
             
       
