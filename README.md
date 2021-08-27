@@ -5,111 +5,113 @@
 ![Build](https://github.com/camillomurcia/serenity-screenplay-rest-assured/actions/workflows/pipelineBuild.yml/badge.svg)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-Construccion de pruebas automatizadas con el Patrón Screenplay de Serenity, Cucumber, Junit, 
-Java y Gradle para probar una REST y una SOAP
+Building automated tests with the Screenplay Pattern of Serenity, Cucumber, Junit,
+Java and Gradle to test a REST and a SOAP
 
-Para esta automatización se utilizan los siguientes servicios expuestos:
+- [Serenity BDD reports for this project](https://camillomurcia.github.io/serenity-screenplay-rest-assured/)
 
-- REST (En construccion): [http://dummy.restapiexample.com](http://dummy.restapiexample.com)
+The following exposed services are used for this automation:
+
+- REST: [https://reqres.in](https://reqres.in)
 - SOAP: [https://www.dataaccess.com/webservicesserver/NumberConversion.wso](https://www.dataaccess.com/webservicesserver/NumberConversion.wso)
 
- ### Pruebas construidas 📋
+ ### Built tests 📋
 
  #### REST ####
 
- - Creacion de usuario 
+ - User creation
 
  #### SOAP ####
 
- - Enviar un numero por el servicio y que este me retorne el numero en ingles 
+ - Send a number for the service and have it return the number in English 
 
-## Que necesitas antes de descargar el repositorio 🛠️ ##
+## What do you need before downloading the repository 🛠️ ##
 
  - Java JDK 1.8
- - Gradle 3.2.0 o superior
+ - Gradle 3.2.0 or higher
  - GIT 
 
-## Patrones de diseño utilizados 🧮
+## Design patterns used 🧮
 
-- ### [Patron Builder](https://github.com/sauljabin/design-patterns-java#builder)
+- ### [Builder Pattern](https://github.com/sauljabin/design-patterns-java#builder)
 
-- ### [Patron Serenity Screenplay](http://serenity-bdd.info/docs/articles/screenplay-tutorial.html)
+- ### [Serenity Screenplay Pattern](http://serenity-bdd.info/docs/articles/screenplay-tutorial.html)
 
- ## Estructura del proyecto 🗼
+ ## Project structure 🗼
 
     .
     ├── src              
-    │   ├── main                         # Archivos fuente  
+    │   ├── main                         # Source files 
     │   │   └── com.serenity.restassured
-    │   │       ├── exceptions           # Excepciones personalizadas 
-    │   │       ├── models               # Paquete donde se encuentan los modelos - Objeto
-    │   │       │   └── builder              # Clases del patron Builder
+    │   │       ├── exceptions           # Custom exceptions 
+    │   │       ├── models               # Package where the models are located - Object
+    │   │       │   └── builder          # Builder pattern classes
     │   │       │
-    │   │       ├── questions            #  Paquete donde se almacenan clases para obtener datos del servcio, respuesta del servicio, etc..
-    │   │       │   ├── rest                 # Clases especificas para REST
-    │   │       │   └── soap                 # Clases especificas para SOAP
+    │   │       ├── questions            # Package where classes are stored to obtain data from the service, response from the service, etc.
+    │   │       │   ├── rest             # Specific classes for REST
+    │   │       │   └── soap             # Specific classes for SOAP
     │   │       │                         
-    │   │       ├── tasks                #  Paquete donde se almacenan las tareas que realizan el conusmo del servicio, etc..
-    │   │       │   ├── rest                 # Clases especificas para REST
-    │   │       │   └── soap                 # Clases especificas para SOAP
+    │   │       ├── tasks                # Package where the tasks that perform the consumption of the service are stored, etc.
+    │   │       │   ├── rest             # Specific classes for REST
+    │   │       │   └── soap             # Specific classes for SOAP
     │   │       │
-    │   │       └── utils                # Utilidades desarrolladas
+    │   │       └── utils                # Utilities developed
     │   │                        
-    │   ├── test                         # Archivos para la ejecucion de las pruebas
+    │   ├── test                         # Files for the execution of the tests
     │   │   ├── com.serenity.restassured
-    │   │   │   ├── runners              # Clases de ejecucion de las pruebas
-    │   │   │   │   ├── rest                 # Clases de ejecucion para servicios REST
-    │   │   │   │   └── soap                 # Clases de ejecucion para servicios SOAP
+    │   │   │   ├── runners              # Test execution classes
+    │   │   │   │   ├── rest             # Execution classes for REST services
+    │   │   │   │   └── soap             # Execution classes for SOAP services
     │   │   │   │
-    │   │   │   └── stepdefinitions     # Clases con el método Java con una expresión que lo vincula a uno o más pasos de Gherkin
-    │   │   │       ├── rest                 # Clases StepDefinitions para servicios REST
-    │   │   │       └── soap                 # Clases StepDefinitions para servicios SOAP
+    │   │   │   └── stepdefinitions      # Classes with the Java method with an expression that links it to one or more Gherkin steps
+    │   │   │       ├── rest             # StepDefinitions classes for REST services
+    │   │   │       └── soap             # StepDefinitions classes for SOAP services
     │   │   │    
     │   │   └── resources
-    │   │       ├── features            # Paquete donde se almacenan los escenarios en lenguaje Gherkin
-    │   │       │   ├── rest                 # Escenarios en lenguaje Gherkin para servicios REST
-    │   │       │   └── soap                 # Escenarios en lenguaje Gherkin para servicios SOAP
+    │   │       ├── features             # Package where the scenarios are stored in Gherkin language
+    │   │       │   ├── rest             # Gherkin language scenarios for REST services
+    │   │       │   └── soap             # Gherkin language scenarios for SOAP services
     │   │       │
-    │   │       └── request             # Paquete donde se almacena archivo xml o json con el request del servicio
-    │   │           └── soap                 # Paquete donde se almacena archivo xml con el request del servicio SOAP
+    │   │       └── request              # Package where xml or json file is stored with the service request
+    │   │           └── soap             # Package where xml file is stored with the request of the SOAP service
     │   └── ···
     │
     └── ···
 
-## Compilacion ⚙️
+## Compilation ⚙️
 
-Ya descargado el proyecto, importarlo en el IDE de preferencia.
+Once the project has been downloaded, import it into the IDE of preference.
 
-Es importante compilar el proyecto para esto, ejecutar alguno de los siguientes comandos.
-Ejecutar por consola
+It is important to compile the project for this, execute one of the following commands.
+Run by console
 
 ```
 gradle clean build -x test
 gradle compileJava
 ```
 
-## Ejecucion 🚀
+## Execution 🚀
 
-**Ejecución Todos los test**
+**Execution All tests**
 
-Para ejecutar todos los test del proyecto y generar el reporte puede usar.
+To run all the project tests and generate the report you can use.
 
 ```
 gradle clean test aggregate
 ```
 
-**NOTA:** El reporte generado de las pruebas se genera en la ruta `/target/site/serenity/index.html`
+**NOTE:** The report generated from the tests is generated in the route `/target/site/serenity/index.html`
 
-## Contribucion 🖇️
+## Contribution 🖇️
 
-Las contribuciones son lo que hacen que la comunidad de código abierto sea un lugar tan increíble para aprender, inspirar y crear. **Cualquier contribución que haga será muy apreciada.**
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. ** Any contribution you make will be greatly appreciated. **
 
-1. Bifurcar el proyecto
-2. Cree su rama feature (`git checkout -b feature/AmazingFeature`)
-3. Confirme sus cambios (`git commit -m 'Agregando algo en la rama AmazingFeature'`)
-4. suba la rama (`git push origin feature/AmazingFeature`)
-5. Abra un Pull Request
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature / AmazingFeature`)
+3. Commit your changes (`git commit -m 'Adding something to AmazingFeature branch'`)
+4. upload the branch (`git push origin feature / AmazingFeature`)
+5. Open a Pull Request
 
-## Licencia 📄
+## License 📄
 
-Distribuido bajo la licencia Apache-2.0. Consulte `LICENSE` para obtener más información.
+Distributed under the Apache-2.0 license. See `LICENSE` for more information.
